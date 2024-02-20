@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('fullName');
+            $table->string('role')->nullable(false)->default('client');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255)->nullable();
             $table->rememberToken();
@@ -24,9 +26,6 @@ return new class extends Migration
             $table->string('jwt_token')->nullable();
             $table->string('jwt_refresh_token')->nullable();
             $table->timestamp('jwt_expires_at')->nullable();
-
-            // Campos adicionais (opcional)
-            // ...
         });
     }
 
